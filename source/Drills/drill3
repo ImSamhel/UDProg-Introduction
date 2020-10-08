@@ -45,6 +45,7 @@ int main()
 		
 		if(min_check)
 		{
+			mx_value = length;
 			min_value = length;
 			min_check = false;
 		}
@@ -59,12 +60,13 @@ int main()
 			
 		}
 			
-		cout << "smallest value: " << min_value << endl << "largest value: " << max_value << endl << "number of values: " << numbers.size() << endl << "sum of values: " << sum << endl;
+		
+		cout << "smallest value: " << min_value << " m"<< endl << "largest value: " << max_value << " m" << endl << "number of values: " << numbers.size() << endl << "sum of values: " << sum << " m" << endl;
 		
 		sort(numbers);
 		
 		for(double length : numbers)
-			cout << length << "\t"; 
+			cout << length <<" m \t"; 
 		
 	
 	
