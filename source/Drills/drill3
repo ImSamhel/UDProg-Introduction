@@ -4,33 +4,42 @@ int main()
 	double number1 = 0;
 	double number2 = 0;
 	
+	double conv1 = 2.54;
+	double conv2 = 12;
+	double conv3 = 100;
+	
 	double number = 0;
 	double length = 0;
+	
 	string unit;
+	
 	double sum = 0;
+	
 	bool min_check = true;
 	bool error = false;
+	
 	double min_value = 0;
 	double max_value = 0;
+	
 	vector<double>numbers;
 	
 	while(cin >> number >> unit)
 	{
-		if(unit == "inch")
+		if(unit == "in")
 		{
-		length = ((number * 2.54) / 100);
+		length = ((number * conv1) / conv3);
 		numbers.push_back(length);
 		sum += length;
 		}
 		else if(unit == "cm")
 		{
-		length = number / 100;
+		length = number / conv3;
 		numbers.push_back(length);
 		sum += length;
 		}
 		else if(unit == "ft")
 		{
-		length = ((number * 12 * 2.54) /100);
+		length = ((number * conv2 * conv1) /conv3);
 		numbers.push_back(length);
 		sum += length;
 		}
@@ -65,7 +74,7 @@ int main()
 		
 		
 			
-		}
+		
 			
 		
 		cout << "smallest value: " << min_value << " m"<< endl << "largest value: " << max_value << " m" << endl << "number of values: " << numbers.size() << endl << "sum of values: " << sum << " m" << endl;
@@ -74,15 +83,12 @@ int main()
 		
 		for(double length : numbers)
 			cout << length <<" m \t"; 
+	
+		cout<<endl;
+	}
+	
 		
-	
-	
-	
-		
-	
-	
-	
-		return 0;
+	return 0;
 	
 	}
 	
