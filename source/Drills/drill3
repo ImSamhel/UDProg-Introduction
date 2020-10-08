@@ -3,11 +3,13 @@ int main()
 {
 	double number1 = 0;
 	double number2 = 0;
+	
 	double number = 0;
 	double length = 0;
 	string unit;
 	double sum = 0;
 	bool min_check = true;
+	bool error = false;
 	double min_value = 0;
 	double max_value = 0;
 	vector<double>numbers;
@@ -40,12 +42,17 @@ int main()
 		}
 		else
 		{
-		cout << "Error. Illegal unit detected." << endl;
+		error = true;
 		}
 		
-		if(min_check)
+		if(error)
 		{
-			mx_value = length;
+			error = false;
+			cout << "Error. Illegal unit detected." << endl;
+		}
+		else if(min_check)
+		{
+			max_value = length;
 			min_value = length;
 			min_check = false;
 		}
