@@ -3,32 +3,43 @@ int main()
 {
 	double number1 = 0;
 	double number2 = 0;
+	
+	double conv1 = 2.54;
+	double conv2 = 12;
+	double conv3 = 100;
+	
 	double number = 0;
 	double length = 0;
+	
 	string unit;
+	
 	double sum = 0;
+	
 	bool min_check = true;
+	bool error = false;
+	
 	double min_value = 0;
 	double max_value = 0;
+	
 	vector<double>numbers;
 	
 	while(cin >> number >> unit)
 	{
-		if(unit == "inch")
+		if(unit == "in")
 		{
-		length = ((number * 2.54) / 100);
+		length = ((number * conv1) / conv3);
 		numbers.push_back(length);
 		sum += length;
 		}
 		else if(unit == "cm")
 		{
-		length = number / 100;
+		length = number / conv3;
 		numbers.push_back(length);
 		sum += length;
 		}
 		else if(unit == "ft")
 		{
-		length = ((number * 12 * 2.54) /100);
+		length = ((number * conv2 * conv1) /conv3);
 		numbers.push_back(length);
 		sum += length;
 		}
@@ -40,11 +51,17 @@ int main()
 		}
 		else
 		{
-		cout << "Error. Illegal unit detected." << endl;
+		error = true;
 		}
 		
-		if(min_check)
+		if(error)
 		{
+			error = false;
+			cout << "Error. Illegal unit detected." << endl;
+		}
+		else if(min_check)
+		{
+			max_value = length;
 			min_value = length;
 			min_check = false;
 		}
@@ -57,23 +74,21 @@ int main()
 		
 		
 			
-		}
+		
 			
-		cout << "smallest value: " << min_value << endl << "largest value: " << max_value << endl << "number of values: " << numbers.size() << endl << "sum of values: " << sum << endl;
+		
+		cout << "smallest value: " << min_value << " m"<< endl << "largest value: " << max_value << " m" << endl << "number of values: " << numbers.size() << endl << "sum of values: " << sum << " m" << endl;
 		
 		sort(numbers);
 		
 		for(double length : numbers)
-			cout << length << "\t"; 
+			cout << length <<" m \t"; 
+	
+		cout<<endl;
+	}
+	
 		
-	
-	
-	
-		
-	
-	
-	
-		return 0;
+	return 0;
 	
 	}
 	
