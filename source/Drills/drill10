@@ -1,0 +1,137 @@
+#include "std_lib_facilities.h"
+
+struct Point
+{
+	int x,y;
+};
+
+vector<Point> bekeres()
+{
+	int bekeres = 0;
+	const int max = 7;
+	int x,y;
+	vector<Point> original_points;
+	
+	cout << "Please enter 7 pairs of values, x and y (x y):\n\n";
+	
+	for (int i = 0; i < max; i++)
+	{
+		cin >> x >> y;
+		if(cin)
+		{
+			original_points.push_back(Point{x,y});
+		}
+		else if (cin.fail())
+		{
+			cin.clear();
+			--i;
+			cout << "Bad input. Please type in an integer" << endl;
+			for(char c; cin >> c && !isdigit(c); )
+			{
+				;
+			}
+			if(!cin) error("no input");
+			cin.unget();
+		}
+		else
+		{
+			error ("no input");
+		}
+	}
+	
+	/* 
+	or:
+	
+	while(cin >> x >> y)
+	{
+		original_points.push_back(Point{x,y});
+		bekeres++;
+		
+		if(bekeres == max)
+		{
+			break;
+		}
+	}
+	
+	*/
+	
+	cout << "\nOriginal Points:\n"<< endl;
+	
+	for(const auto& p : original_points)
+	{
+		cout << p.x << ' ' << p.y << endl;
+	}
+	
+	return original_points;
+}
+
+void opoints(vector<Point>& original_points)
+{
+	ofstream ost {"mydata.txt"};
+	
+	if(!ost) error ("Can't open output file: mydata.txt");
+	
+	for(const auto& fantasztikus : original_points)
+	{
+		ost << fantasztikus.x << ' ' << fantasztikus.y << endl;
+	}
+	
+	ost.close();
+	
+	cout << "\nOutput file created :D\n" << endl;
+}
+
+vector<Point> ipoints()
+{
+	ifstream ist {"mydata.txt"};
+	
+	if(!ist) error("Can't open input file: mydata.txt");
+	
+	int x,y;
+	
+	vector<Point> processed_points;
+	
+	while(ist >> x >> y)
+	{
+		processed_points.push_back(Point{x,y});
+	}
+	
+	cout << "\nProcessed Points:\n"<< endl;
+	
+	for(const auto& l : processed_points)
+	{
+		cout << l.x << ' ' << l.y << endl;
+	}
+	
+	return processed_points;
+}
+
+void compvec(vector<Point>& vec1, vector<Point>& vec2)
+{
+	if(vec1.size() != vec2.size())
+		error("\nSomething's wrong\n");
+	for(int i = 0; i < vec1.size(); i++)
+	{
+		if(vec1[i].x != vec2[i].x || vec1[i].y != vec2[i].y)
+			error ("\nSomething's wrong\n");
+	}
+	
+	cout << "\nEverything's fine\n" << endl;
+}
+
+int main()
+try{
+	vector<Point> original_points{bekeres()};
+	
+	opoints(original_points);
+	
+	vector<Point> processed_points{ipoints()};
+	
+	compvec(original_points,processed_points);
+	
+	return 0;
+}
+catch(exception& e)
+{
+	cout << e.what() << endl;
+}
