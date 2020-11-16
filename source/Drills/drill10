@@ -39,22 +39,6 @@ vector<Point> bekeres()
 		}
 	}
 	
-	/* 
-	or:
-	
-	while(cin >> x >> y)
-	{
-		original_points.push_back(Point{x,y});
-		bekeres++;
-		
-		if(bekeres == max)
-		{
-			break;
-		}
-	}
-	
-	*/
-	
 	cout << "\nOriginal Points:\n"<< endl;
 	
 	for(const auto& p : original_points)
@@ -121,6 +105,7 @@ void compvec(vector<Point>& vec1, vector<Point>& vec2)
 
 int main()
 try{
+
 	vector<Point> original_points{bekeres()};
 	
 	opoints(original_points);
@@ -134,4 +119,5 @@ try{
 catch(exception& e)
 {
 	cout << e.what() << endl;
+	return 1;
 }
