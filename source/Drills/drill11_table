@@ -1,0 +1,43 @@
+#include "std_lib_facilities.h"
+
+void ctableme()
+{
+	string last_name = "Csonka";
+	
+	string first_name = "Dávid";
+	
+	string tel = "06209955869";
+	
+	string email = "davidka9505@gmail.com";
+	
+	cout << "Last Name: "<< setw(5) << last_name << '|' << setw(5) << "First Name: " << setw(5) << first_name << "|\n\n" << "Tel.: " << setw (5) << tel << '|' << "Email: " << setw(5) << email << '|' << "\n\n\n"; 
+	
+}
+
+void ctable()
+{
+	vector<string> lasts = {"Nagy", "Erdei", "Borz", "Vitkos", "Guti"};
+	vector<string> firsts = {"László", "Ákos", "Kacsa", "Bence", "Szilárd"};
+	vector<string> tels = {"06303339988", "06206785666", "+36306668736", "06205432143", "06304358867"};
+	vector<string> emails = {"lacika666@gmail.com", "akoska666@gmail.com", "adam666@gmail.com", "vitkos666@gmail.com", "szili666@gmail.com"};
+	
+	for(int i = 0; i < lasts.size(); i++)
+	{
+		cout << "Last Name: "<< setw(5) << lasts[i] << '|' << setw(5) << "First Name: " << setw(5) << firsts[i] << "|\n\n" << "Tel.: " << setw (5) << tels[i] << '|' << "Email: " << setw(5) << emails[i] << '|' << "\n\n\n"; 
+	}
+	
+}
+
+int main()
+try{
+	
+	ctableme();
+	ctable();
+	
+	return 0;
+
+}catch(exception& e)
+{
+	cout << "Gumimaci";
+	return 1;
+}
