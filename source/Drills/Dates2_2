@@ -93,13 +93,12 @@ void Date::add_day(int n)
 
 void f()
 {
-	int y,m,d;
-	cin>>y>>m>>d;
-	Date today{y,m,d};
+	
+	Date today{1978,6,25};
 	
 	cout<<"Today: " <<today<<'\n';
 	
-	Date tomorrow{y,m,d};
+	Date tomorrow{today};
 	tomorrow.year = today.year;
 	tomorrow.month = today.month;
 	tomorrow.day = today.day;

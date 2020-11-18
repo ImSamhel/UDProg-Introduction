@@ -41,7 +41,7 @@ class Date
 };
 
 
-ostream& operator<<(ostream& os, Date& dd)
+ostream& operator<<(ostream& os, const Date& dd)
 {
 	return os << dd.get_year() << '.' << dd.get_month() << '.' << dd.get_day();
 }

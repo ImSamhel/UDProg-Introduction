@@ -94,9 +94,8 @@ void Date::add_day(int n)
 
 int main()
 try{	
-	int y,m,d;
-	cin>>y>>m>>d;
-	Date today{y,m,d};
+	
+	Date today{1978,6,25};
 	
 	cout << "Today: " << today << endl;
 	
