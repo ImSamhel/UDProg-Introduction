@@ -1,10 +1,12 @@
 #include "my.h"
+#include <iostream>
+using namespace std;
 
 int foo;
 int i;
 
 int main()
-{
+try{
 	foo = 7;
 	i = 99;
 	
@@ -12,25 +14,55 @@ int main()
 	
 	print(i);
 	
-	swap_r(foo,i);
+	//swaps:
 	
-	print_foo();
+	cout << "\nswaps: \n";
 	
-	print(i);
+	int x = 7;
+	int y = 9;
+	cout <<"\nx's current value: " << x << '\n' << "y's current value: " << y << "\n\n";
+	swap_r(x,y);
+	cout << "swap_r was the correct function to call: \n\n" << "x's value after swap: " << x << '\n' << "y's value after swap: " << y << "\n\n";
 	
-	swap_v(foo,i);
 	
-	print_foo();
+	swap_v(7,9);
+	cout << "\nswap_v(7,9):";
+	cout << " swap_v was the correct function to call \n\n";
 	
-	print(i);
 	
-	/*swap_cr(foo,i);
+	const int cx = 7;
+	const int cy = 9;
+	cout <<"\ncx's current value: " << cx << '\n' << "cy's current value: " << cy << "\n";
+	swap_v(cx,cy);
+	cout << "cx's value after swap: " << cx << '\n' << "cy's value after swap: " << cy << "\n";
+	cout << "compiles with swap_v but doesn't values doesn't actually get swapped (const) \n\n\n";
 	
-	print_foo();
 	
-	print(i);*/
+	swap_v(7.7,9.9);
+	cout << "swap_v(7.7,9.9): \n";
+	cout << "compiles with swap_v but doesn't values doesn't actually get swapped (double) \n\n\n";
 	
+	
+	double dx = 7.7;
+	double dy = 9.9;
+	cout << "dx's current value: " << dx << '\n' << "dy's current value: " << dy << "\n";
+	swap_v(dx,dy);
+	cout << "dx's value after swap: " << dx << '\n' << "dy's value after swap: " << dy << "\n";
+	cout << "compiles with swap_v but doesn't values doesn't actually get swapped (const) \n\n";
+	
+	
+	swap_v(7.7,9.9);
+	cout << "swap_v(7.7,9.9): \n";
+	cout << "compiles with swap_v but doesn't values doesn't actually get swapped (double) \n";
 	
 	return 0;
+}catch(exception& e)
+{
+	cout << e.what() << endl;
+	return 1;
+}catch(...)
+{
+	cout << "error";
+	return 2;
 }
 

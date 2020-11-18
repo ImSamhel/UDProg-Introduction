@@ -69,6 +69,8 @@ bool Date::is_valid()
 			else
 			return false;
 			break;
+			default:
+			error("kolbász");
 		}
 	}
 	else
@@ -111,6 +113,8 @@ void Date::add_day(int n)
 			day -= 30;
 		}
 		break;
+		default:
+			error("kolbász");
 	}
 }
 
@@ -136,7 +140,12 @@ try{
 catch (Date::Invalid) {
 	cout << "Invalid date\n" << endl;
 	return 1;
-} catch (exception& e) {
+}catch(exception& e)
+{
 	cout << e.what() << endl;
 	return 2;
+}catch(...)
+{
+	cout << "error";
+	return 3;
 }
