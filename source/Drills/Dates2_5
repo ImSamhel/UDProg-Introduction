@@ -33,13 +33,9 @@ class Date
 	bool is_valid();
 	Date(int y, Month m, int d): year(y), month(m), day(d) { if(!is_valid()) throw Invalid{}; }
 	
-	Month get_month()  {return month;}
-	int get_day()  {return day;}
-	int get_year() {return year;}
-	
-	int dayo() const;
-	Month montho() const;
-	int yearo() const;
+	Month get_month() const {return month;}
+	int get_day() const {return day;}
+	int get_year() const {return year;}
 	
 	void add_day(int n);
 	void add_month(int n);
