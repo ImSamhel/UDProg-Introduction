@@ -1,0 +1,241 @@
+#include "std_lib_facilities.h"
+
+/*
+class Vektor
+{
+	private:
+	
+		int number_of_elements;
+		double* elem;
+		
+	public:
+	
+		Vektor(int num): number_of_elements(num), elem{new double[num]}
+		{
+			for(int i = 0; i < num; i++)
+			elem[i] = 0;
+		}
+		
+		~Vektor()
+		{
+			delete[] elem;
+		}
+		
+		double get_elem(int n) const { return elem[n]; }
+		
+		void set_elem(int n, double val) { elem[n] = val; }
+		
+		int num_of_elements() const { return number_of_elements; }
+		
+};
+
+
+void print_vector(ostream& os,Vektor& d,int n)
+{
+	for(int i = 0; i < n; i++)
+	{
+		cout << d.get_elem(i) << endl;
+	} 
+}
+*/
+
+void print_vector(ostream& os,vector<int>& d,int n)
+{
+	for(int i = 0; i < n; i++)
+	{
+		cout << d[i] << endl;
+	} 
+}
+
+void print_array10(ostream& os, int* a)
+{
+	for(int i = 0; i < 10; i++)
+	{
+		cout << a[i] << endl;
+	} 
+}
+
+void print_array11(ostream& os, int* b)
+{
+	for(int i = 0; i < 11; i++)
+	{
+		cout << b[i] << endl;
+	} 
+}
+
+void print_array(ostream& os,int* c,int n)
+{
+	for(int i = 0; i < n; i++)
+	{
+		cout << c[i] << endl;
+	} 
+}
+
+
+int main()
+try{
+	
+	int* intarray = new int[10];
+	/*
+	for(int i = 0; i < 10; i++)
+	{
+		intarray2[i] = 1 + i;
+	}
+	*/
+	cout << "First array: " << endl;
+	print_array10(cout,intarray);
+	delete[] intarray;
+	
+	
+	int* intarray2 = new int[10];
+	for(int i = 0; i < 10; i++)
+	{
+		intarray2[i] = 100 + i;
+	}
+	cout << "Second array: " << endl;
+	print_array10(cout,intarray2);
+	delete[] intarray2;
+	
+	
+	int* intarray3 = new int[11];
+	for(int i = 0; i < 11; i++)
+	{
+		intarray3[i] = 100 + i;
+	}
+	cout << "Third array: " << endl;
+	print_array11(cout,intarray3);
+	delete[] intarray3;
+	
+	
+	int* intarray4 = new int[20];
+	for(int i = 0; i < 20; i++)
+	{
+		intarray4[i] = 100 + i;
+	}
+	cout << "Fourth array: " << endl;
+	print_array(cout,intarray4,20);
+	delete[] intarray4;
+	
+	///////////////////////////////////////////////////////////////////////////
+	//Vektorok:
+	
+	vector<int> v1(10);
+	for(int i = 0; i < v1.size(); i++)
+	{
+		v1[i] = 100 + i;
+	}
+	cout << "First vector: " << endl;
+	print_vector(cout,v1,v1.size());
+	
+	
+	vector<int> v2(11);
+	for(int i = 0; i < v2.size(); i++)
+	{
+		v2[i] = 100 + i;
+	}
+	cout << "Second vector: " << endl;
+	print_vector(cout,v2,v2.size());
+	
+	
+	vector<int> v3(20);
+	for(int i = 0; i < v3.size(); i++)
+	{
+		v3[i] = 100 + i;
+	}
+	cout << "Third vector: " << endl;
+	print_vector(cout,v3,v3.size());
+	
+	/////////////////////////////////////////////////////////////////////////
+	
+	int* integer1 = new int(7);
+	int* p1 = integer1;
+	cout << p1 << endl << *integer1 << endl;
+	//delete integer1;
+	
+	
+	int* array1 = new int[7];
+	int* p2 = array1;
+	cout << p2 << endl;
+	for(int i = 0; i < 7; i++)
+	{
+		array1[i] = pow(2, i);
+		cout << array1[i] << endl;
+	}
+	//delete[] array1;
+	
+	int* p3 = p2;
+	p1 = p2;
+	p3 = p2;
+	cout << p1 << endl << p2 << endl << *p1 << endl << *p2 << endl;
+	
+	delete[] array1;
+	delete integer1;
+	
+	int* array2 = new int[10];
+	p1 = array2;
+	//cout << p1 << endl;
+	for(int i = 0; i < 10; i++)
+	{
+		array2[i] = pow(2, i);
+		//cout << array2[i] << endl;
+	}
+	
+	int* array3 = new int[10];
+	p2 = array3;
+	cout << p2 << endl;
+	/*
+	for(int i = 0; i < 7; i++)
+	{
+		cout << array2[i] << endl;
+	}
+	*/
+	
+	for(int i = 0; i < 10; i++)
+	{
+		array3[i] = array2[i];
+		//cout << array3[i] << endl;
+	}
+	
+	delete[] array2;
+	delete[] array3;
+	
+	//////////////////////////////////////////////////////////////////////
+	
+	vector<int> vector1(10);
+	p1 = vector1.data();
+	//cout << p1 << endl;
+	for(int i = 0; i < 10; i++)
+	{
+		vector1[i] = pow(2, i);
+		//cout << vector1[i] << endl;
+	}
+	
+	vector<int> vector2(10);
+	
+	p1 = vector2.data();
+	//cout << p1 << endl;
+	for(int i = 0; i < 10; i++)
+	{
+		vector2[i] = pow(2, i);
+		//cout << vector2[i] << endl;
+	}
+	
+	for(int i = 0; i < 10; i++)
+	{
+		vector1[i] = vector2[i];
+		//cout << array3[i] << endl;
+	}
+	
+	return 0;
+}
+catch(exception& e)
+{
+	cout << e.what() << endl;
+	return 1;
+}
+catch(...)
+{
+	cout << "error" << endl;
+	return 2;
+}
+
