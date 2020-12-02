@@ -1,0 +1,61 @@
+#include "std_lib_facilities.h"
+
+int ga[10]{1,2,4,8,16,32,64,128,256,512};
+
+int factor(int n)
+{
+	int sum = 1;
+	
+	for(int i = 1; i <= n; i++)
+	{
+		sum *= i;
+	}
+	
+	return sum;
+}
+
+void f(int arr[], int num)
+{
+	int la[10];
+	copy(ga, &ga[10], la);
+	
+	for(int i = 0; i < 10; i++)
+		cout<<la[i]<<' ';
+		
+	cout<<endl;
+	
+	int* p = new int [num];
+	copy(arr, &arr[num], p);
+	
+	for(int i = 0; i < num; i++)
+		cout<<p[i]<<' ';
+	
+	cout<<endl;
+	
+	delete[] p;
+}
+
+int main()
+try{
+
+	f(ga,10);
+
+	int aa[10];
+	
+	for(int i = 0; i < 10; i++)
+		aa[i] = factor(i+1);
+	
+	f(aa,10);
+
+	return 0;
+
+}catch(exception& e)
+{
+	cout << e.what() << endl;
+	return 1;
+}catch(...)
+{
+	cout << "error baby" << endl;
+	return 2;
+}
+
